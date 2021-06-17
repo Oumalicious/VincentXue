@@ -1,0 +1,306 @@
+<!DOCTYPE HTML>
+<!-- Name: Vincent Xue -->
+<html>
+	<head>
+		<title>
+			Portfolio
+		</title>
+	</head>
+	<style>
+		#headerFloat > div{
+			font-size: 20px;
+			margin: 22px 20px 22px 20px;
+			font-weight: bold;
+		}
+		#headerFloat > .header:hover{
+			cursor: pointer;
+		}
+		#intro > div{
+			padding: 3px 0px 3px;
+			width: 600px;
+		}
+		#aboutMe > div{
+			padding: 6px;
+		}
+		.divLink{
+			color: blue;
+			text-decoration: underline;
+		}
+		body {
+			overflow-y: hidden;
+			overflow-x: hidden;
+		}
+		.container1{
+			padding: 140px 150px 140px 150px;
+		}
+		.container2{
+			padding: 115px 155px 115px 155px;
+		}
+		.container3{
+			padding: 2% 0px 2% 3%;
+		}
+		.container4{
+			padding: 85px 155px 85px 155px;
+		}
+		.portfolioPic{
+			width: 152px;
+			height: 152px;
+			border-radius: 50%;
+		}
+		.icon{
+			width: 2.2em;
+			height: 2.2em;
+			padding: 2px;
+		}
+		.icon:hover{
+			opacity: .35;
+			cursor: pointer;
+		}
+		.skillBlock{
+			padding-right: 50px;
+		}	
+	</style>
+	<script>
+		var SHOWING = false;
+		function show(id){
+			if(SHOWING){
+				return;
+			}
+			SHOWING = true;
+			id = id.substring(0,id.length-6);
+			var selectedBio = document.getElementById(id);
+			if(selectedBio.style.display != "none") return;
+			var frontpage = document.getElementById("frontpage");
+			var aboutMe = document.getElementById("aboutMe");
+			var coding = document.getElementById("coding");
+			var projects = document.getElementById("projects");
+			var contactinfo = document.getElementById("contactinfo");
+			var headerarray = [frontpage, aboutMe, coding, projects, contactinfo];
+			var selectedHeader = document.getElementById(id + "Header");
+			selectedHeader.style.color = "red";
+			for(var i in headerarray){
+				if(headerarray[i].id == id) continue;
+				var header = document.getElementById(headerarray[i].id + "Header");
+				header.style.color = "black";
+				$("#" + headerarray[i].id).fadeOut();
+			}
+			$("#" + id).delay(425).fadeIn();
+			setTimeout(function(){
+				SHOWING = false;
+			}, 700);
+		}
+		
+		<!-- function generateOnClick(){ -->
+			<!-- let projects = document.getElementById("projectContainer").children; -->
+			<!-- for(let i = 0; i < projects.length; i++){ -->
+				<!-- projects[i].onclick = function(){ -->
+					<!-- let frame = document.getElementById("projectFrame"); -->
+					<!-- frame.src = "project" + (i+1) + "/index.html"; -->
+				<!-- } -->
+			<!-- } -->
+		<!-- } -->
+		
+		<!-- function resizeFrame(frame){ -->
+			<!-- frame.style.width = frame.contentWindow.document.documentElement.scrollWidth + 'px'; -->
+			<!-- frame.style.height = frame.contentWindow.document.documentElement.scrollHeight + 'px'; -->
+		<!-- } -->
+		
+		function onMouseOver(header){
+			if(header.style.color != "red") {
+				var ele = header.id;
+				document.getElementById(ele).style.color = "#999E9E";
+			}
+		}
+		
+		function onMouseLeave(header){
+			if(header.style.color != "red") {
+				var ele = header.id;
+				document.getElementById(ele).style.color = "black";
+			}
+		}
+		
+	</script>
+	<body style="margin: 0px; font-family: sans-serif; background-color: #ECF0F1">
+		<div id="divContainer">
+			<div>
+				<div id="header" style="position: static; bottom: 0px; right: 0px; overflow: auto">
+					<div id="headerFloat" style="display: flex;	justify-content: center">
+						<div id="frontpageHeader" class="header" style="color:red" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+							Front page
+						</div>
+						<div id="aboutMeHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+							About Me
+						</div>
+						<div id="codingHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+							Coding
+						</div>
+						<div id="projectsHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+							Projects
+						</div>
+						<div id="contactinfoHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+							Contact Info
+						</div>
+					</div>
+				</div>
+				<div id="linebreak" style="margin: 0px 20px 0px">
+					<hr>
+				</div>
+			</div>
+			<div id="frontpage" class = "container1">
+				<div style = "display: flex">
+					<div id="hi" style="font-size: 200px; padding: 6% 0px 50px 28%">
+						Hi
+					</div>
+					<div id="intro" style="font-size: 26px; padding: 8.4% 0px 0px 2%">
+						<div>
+							My name is Vincent Hanley Xue. 
+						</div>
+						<div>
+							I'm a 2021 graduate from Brooklyn College.
+						</div>
+						<div>
+							I love exercising, playing the piano, and coding.
+						</div>
+						<div>
+							Welcome to my portfolio.
+						</div>
+					</div>
+				</div>
+				<div style = "display: flex; justify-content: center">
+					<img class = "portfolioPic" src = "https://media-exp1.licdn.com/dms/image/C4D03AQHJO7kBGXLHEw/profile-displayphoto-shrink_200_200/0/1558319354866?e=1628726400&v=beta&t=dNQXi6O-_64DYsONGTnvBTf3-exQU1PjGNk_IMyHp7A" />
+				</div><br />
+				<div style = "display: flex; justify-content: center">
+					<!-- courtesy of google https://img-premium.flaticon.com/png/512/61/61109.png?token=exp=1623202196~hmac=880556c79af1561c396508641292a379 -->
+					<a href = "https://www.linkedin.com/in/vincent-xue-ab2214176/" target = "_blank">
+						<img class = "icon" src = "logos/linkedin.png" />
+					</a>
+					<!-- courtesy of Dave Gandy https://image.flaticon.com/icons/png/512/25/25657.png -->
+					<a href = "https://github.com/Oumalicious" target = "_blank">
+						<img class = "icon" src = "logos/github.png" />
+					</a>
+				</div>
+			</div>
+			<div id="aboutMe" class = "container2" style="display: none; font-size: 26px">
+				<div>
+					Defeat is my success. I'm not afraid of making mistakes because they show me I have something to work on.
+					I'm equally passionate about coding and my hobbies, so this section is dedicated to my two pastimes.
+				</div><br />
+				<div>
+					I picked up the piano when I was 8. I applied for Mark Twain Intermediate School but failed the entry tests in both math and music.
+					My piano teacher at the time was extremely dissapointed in me and made my cry in front of my parents. "I have 9 students and 7 of them got into Mark Twain.
+					Vincent is one of the two students who did not get in. He should be ashamed of himself." I started to grow a hatred towards the piano, but my love for
+					music outweighted it. I eventually continued my path in ABRSM (Associated Board of the Royal Schools of Music) and passed their final Grade 8 exam while I was in highschool.
+				</div><br />
+				<div>
+					Running has been my replacement for competitive swimming. It can be done anywhere, but New York City has fantastic running spots like Central Park and Shore Road.
+					I remember when I couldn't even run 2 miles without a break, but now I'm capable of more and completed the NYC Marathon twice. I even did two 5 Boro Bike Tours and one mini triathalon.
+					These type of activities taught me that physical strength doesn't translate into being a healthy or fit person.
+					Witnessing overweight and disabled runners pass me in a marathon shows me that people should realize their potentials and stop gatekeeping themselves.
+				</div>
+			</div>
+			<div id="coding" class = "container4" style="display: none; font-size: 26px">
+				<div>
+					My coding journey starter at Brooklyn Technical Highschool. In your second year at this school, you get to pick your 'major' for the next two years.
+					I majored in Software Engineering. I learned HTML/CSS/Javascript in my Junior year and Java in my senior year.
+				</div><br />
+				<div>
+					In first month of 2018, I had an internship at All Star Home Care Agency in Brooklyn, NY. My job was to improve the company's Web App.
+					I implemented a clocking system, created a pdf extractor with pdftk, and worked on scripts to update the information displayed on the App.
+					For 11 months at my internship, my supervisor taught me the basic ropes of ReactJS and MongoDB.
+				</div><br />
+				<div>
+					One of my favorite joys of coding is combining seperate works into the production file.
+					In my Game Design class using Unity, my team and I created a maze game. I worked on the scripts, one member worked on the sprites, and one member worked on the menu/UI.
+					This class taught me the importance of planning and scoping.
+				</div><br />
+				<div>
+					I also created an app to study for my Chinese Test. My test questions were initially hard coded and comprised of a three-way match the column mechanism.
+					In my Senior Independant/Group Project class, I polished it into a flexible app that focuses on retesting the incorrect questions by using JSON files.
+				</div><br />
+				<div style = "display: flex; justify-content: center">
+					<div>
+						<div style="font-size: 32px; font-weight: bold; text-align: center">Skills</div><br />
+						<div style="display: flex; padding-left: 200px">
+							<div class = "skillBlock">
+								<div>
+									Proficient
+								</div>
+								<ul>
+									<li>Javascript</li>
+									<li>HTML</li>
+									<li>OOP</li>
+								</ul>
+							</div>
+							<div class = "skillBlock">
+								<div>
+									Alternative Skills
+								</div>
+								<ul>
+									<li>Java</li>
+									<li>Bash</li>
+									<li>Regex</li>
+									<li>PostGreSql</li>
+								</ul>
+							</div>
+							<div class = "skillBlock">
+								<div>
+									Skills with Experience
+								</div>
+								<ul>
+									<li>ReactJS</li>
+									<li>MongoDB</li>
+									<li>Unity Programming with C#</li>
+									<li>Npm</li>
+									<li>Excel</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="projects" class = "container3" style="display: none; font-size: 26px">
+				<div>
+					<div>Character Reviewer App</div>
+					<span>link: </span><a href = "https://oumalicious.github.io/VocabularyReviewer/" target = "_blank">https://oumalicious.github.io/VocabularyReviewer/</a>
+					<ul>
+						<li>Uses a double multiple-choice format, testing the character's pronounciation and translation to the native tongue.</li>
+						<li>Allows the user to create their own tests by saving it into a JSON. Tests can be combined and editted.</li>
+						<li>Features a question timer for rapid testing or progress checking, and a test timer to simulate a timed environment.</li>
+						<li>The results displays the user's choices, answer key, and the questions that were marked incorrect, which can be saved into a test/JSON.</li>
+					</ul>
+				</div>
+				<!-- <div> -->
+					<!-- <div>/<div> -->
+					<!-- <ul> -->
+					<!-- </ul> -->
+				<!-- </div> -->
+			</div>
+			<div id="contactinfo" class = "container1" style="display: none; font-size: 26px;">
+				<div>
+					Email: vincentxue9029@gmail.com
+				</div><br />
+				<div>
+					Github: <a href = "https://github.com/Oumalicious" target = "_blank">https://github.com/Oumalicious</a>
+				</div><br />
+				<div>
+					Linkedin: <a href = "https://www.linkedin.com/in/vincent-xue-ab2214176/"  target = "_blank">https://www.linkedin.com/in/vincent-xue-ab2214176//</a>
+				</div><br />
+				<div>
+					Indeed: <a href = "https://my.indeed.com/p/vincentx-6jr8524" target = "_blank">https://my.indeed.com/p/vincentx-6jr8524</a>
+				</div><br />
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(e2){			
+				$("#frontpageHeader").click(function(e){show(e.target.id)});
+				$("#aboutMeHeader").click(function(e){show(e.target.id)});
+				$("#codingHeader").click(function(e){show(e.target.id)});
+				$("#projectsHeader").click(function(e){show(e.target.id)});
+				$("#labsHeader").click(function(e){show(e.target.id)});
+				$("#contactinfoHeader").click(function(e){show(e.target.id)});
+			});
+//			generateOnClick();
+		</script>
+	</body>
+</html>
