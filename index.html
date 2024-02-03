@@ -85,6 +85,10 @@
 	<script>
 		var SHOWING = false;
 		function show(id){
+			if(SHOWING) {
+				return;
+			}
+			SHOWING = true
 			id = id.replace("Header","");
 			var selectedBio = document.getElementById(id);
 			if(selectedBio.style.display != "none") return;
