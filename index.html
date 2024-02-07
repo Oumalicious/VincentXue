@@ -27,26 +27,32 @@
 			color: blue;
 			text-decoration: underline;
 		}
-		body {
-			<!-- overflow-y: hidden; -->
-			<!-- overflow-x: hidden; -->
+
+        #coding::-webkit-scrollbar-thumb {
+			background-color: red;
+        }
+		hr {
+			width: 98vw
 		}
 		.containerBasic{
-			padding: 120px 150px 100px 150px;
+			padding: 10vh 150px 100px;
 		}
 		.containerAboutMe{
-			padding: 5% 155px 90px 155px;
+			padding: 3vh 10% 90px;
 		}
 		.containerProjects{
-			padding: 50px 60px 50px 60px;
+			padding: 3vh 8% 50px;
 		}
 		.containerCoding{
-			padding: .5% 155px 0px 155px;
+			padding: 3vh 18% 0px;
 		}
 		.containerFlex{
 			display: flex;
 			align-items: center;
 			justify-content: center;
+		}
+		.underneath {
+			z-index: -1;
 		}
 		.frontPageSnippet{
 			padding: 2%;
@@ -80,19 +86,25 @@
 		}
 		.skillBlock{
 			padding-right: 50px;
-		}	
+		}
+        #sidebar {
+            top: 0;
+            bottom: 0;
+        }
 	</style>
 	<script>
-<!--	this js is horrendous. currently fixing it	-->
 		var SHOWING = false;
-		function show(id){
-			if(SHOWING) {
+
+		function show(id) {
+            id = id.replace("Header", "");
+			var selectedBio = document.getElementById(id);
+			if (SHOWING) {
 				return;
 			}
-			SHOWING = true
-			id = id.replace("Header","");
-			var selectedBio = document.getElementById(id);
-			if(selectedBio.style.display != "none") return;
+			if (selectedBio.style.display != "none") {
+				return;
+			}
+            SHOWING = true;
 			var frontpage = document.getElementById("frontpage");
 			var aboutMe = document.getElementById("aboutMe");
 			var coding = document.getElementById("coding");
@@ -100,19 +112,30 @@
 			var contactinfo = document.getElementById("contactinfo");
 			var headerarray = [frontpage, aboutMe, coding, projects, contactinfo];
 			var selectedHeader = document.getElementById(id + "Header");
+			var headerDiv = document.getElementById("header");
 			selectedHeader.style.color = "red";
-			for(var i in headerarray){
-				if(headerarray[i].id == id) continue;
+			for (var i in headerarray) {
+				if (headerarray[i].id == id) {
+					continue;
+				}
 				var header = document.getElementById(headerarray[i].id + "Header");
 				header.style.color = "black";
-				$("#" + headerarray[i].id).fadeOut();
+				$("#" + headerarray[i].id).fadeOut(275);
 			}
-			$("#" + id).delay(425).fadeIn();
-			setTimeout(function(){
-				SHOWING = false;
-			}, 725);
+			$("#" + id).delay(400).fadeIn(300);
+            setTimeout(function(){
+               SHOWING = false;
+            }, 580)
 		}
-		
+
+		function createBufferBlock() {
+			let header = document.getElementById("header");
+			let bufferBlock = document.getElementById("bufferDiv");
+			let headerTextContainer = document.getElementById("headerTextContainer")
+			bufferBlock.style.height = header.offsetHeight + "px";
+			headerTextContainer.style.top = bufferBlock.style.height + "px";
+		}
+
 		<!-- function generateOnClick(){ -->
 			<!-- let projects = document.getElementById("projectContainer").children; -->
 			<!-- for(let i = 0; i < projects.length; i++){ -->
@@ -143,203 +166,202 @@
 		}
 		
 	</script>
-	<body style="margin: 0px; font-family: sans-serif; background-color: #ECF0F1">
+<!--	<body style="margin: 0px; font-family: sans-serif; background-color: #ECF0F1; overflow: hidden">
+-->	<body style="margin: 0px; font-family: sans-serif; background-color: #ECF0F1;">
 		<div id="divContainer">
 			<div>
-				<div id="header" style="position: static; bottom: 0px; right: 0px; overflow: auto">
-					<div id="headerFloat" style="display: flex;	justify-content: center">
-						<div style="color: #7b21c5; font-size: 23px; position: absolute; left: 8%; top:0%">
-							Portfolio of Vincent Xue
-						</div>
-						<div id="frontpageHeader" class="header" style="color:red" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
-							Front page
-						</div>
-						<div id="aboutMeHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
-							About Me
-						</div>
-						<div id="codingHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
-							Coding
-						</div>
-						<div id="projectsHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
-							Projects
-						</div>
-						<div id="contactinfoHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
-							Contact Info
+				<div style="position: fixed; top: 0; left: 50vw; transform: translate(-50%, 0); background-color: #ECF0F1">
+					<div id="header">
+						<div id="headerFloat" style="display: flex;	justify-content: center">
+							<div style="color: #007500; font-size: 23px; position: absolute; left: 8%; top: 0%">
+								Portfolio of Vincent Xue
+							</div>
+							<div id="frontpageHeader" class="header" style="color:red" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+								Front page
+							</div>
+							<div id="aboutMeHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+								About Me
+							</div>
+							<div id="codingHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+								Coding
+							</div>
+							<div id="projectsHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+								Projects
+							</div>
+							<div id="contactinfoHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+								Contact Info
+							</div>
 						</div>
 					</div>
-				</div>
-				<div id="linebreak" style="margin: 0px 20px 0px">
-					<hr>
+					<div id="linebreak" style="margin: 0px 1vw 0px">
+						<hr>
+					</div>
 				</div>
 			</div>
-			<div id="frontpage" class = "containerBasic">
-				<div style = "display: flex; justify-content: center; padding: 2% 0 2%">
-<!--					<div id="hi" style="font-size: 200px; padding: 0 0 0 20%">-->
-<!--						Hi-->
-<!--					</div>-->
-					<div id="intro" style="font-size: 1.65em; padding: 4%; padding-right: 5%">
-						<div class = "containerFlex">
-							<a href = "https://github.com/Oumalicious/VincentXue" target = "_blank">
-								<img class = "icon" src="./logos/coding.png">
-							</a>
-							<div class = "frontPageSnippet">
-								Coding for the brain
-							</div>
-						</div>
-						<div class = "containerFlex">
-							<a href = "https://www.strava.com/athletes/41594988" target = "_blank">
-								<img class = "icon" src="./logos/strava.png">
-							</a>
-							<div class = "frontPageSnippet">
-								Running for the body
-							</div>
-						</div>
-						<div>
+			<div id="bufferDiv">
+			</div>
+			<div id="headerTextContainer">
+				<div id="frontpage" class = "containerBasic underneath">
+					<div style = "display: flex; justify-content: center; padding: 2% 0 2%">
+	<!--					<div id="hi" style="font-size: 200px; padding: 0 0 0 20%">-->
+	<!--						Hi-->
+	<!--					</div>-->
+						<div id="intro" style="font-size: 1.65em; padding: 4%; padding-right: 5%">
 							<div class = "containerFlex">
-								<a>
-									<img class = "icon" src="./logos/synthesia.png">
-	<!--								source = https://www.mysheetmusictranscriptions.com/synthesia-piano-tutorials-->
+								<a href = "https://github.com/Oumalicious/VincentXue" target = "_blank">
+									<img class = "icon" src="./logos/coding.png">
 								</a>
 								<div class = "frontPageSnippet">
-									Piano for the spirit
+									Coding for the brain
+								</div>
+							</div>
+							<div class = "containerFlex">
+								<a href = "https://www.strava.com/athletes/41594988" target = "_blank">
+									<img class = "icon" src="./logos/strava.png">
+								</a>
+								<div class = "frontPageSnippet">
+									Running for the body
+								</div>
+							</div>
+							<div>
+								<div class = "containerFlex">
+									<a>
+										<img class = "icon" src="./logos/synthesia.png">
+		<!--								source = https://www.mysheetmusictranscriptions.com/synthesia-piano-tutorials-->
+									</a>
+									<div class = "frontPageSnippet">
+										Piano for the spirit
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style = "display: flex; justify-content: center">
+						<img class ="portfolioPic" src="./pics/linkedinPic.jpg" width="200" height="200" />
+					</div><br />
+					<div style = "display: flex; justify-content: center">
+						<!-- courtesy of google https://img-premium.flaticon.com/png/512/61/61109.png?token=exp=1623202196~hmac=880556c79af1561c396508641292a379 -->
+						<a href = "https://www.linkedin.com/in/vincent-xue-ab2214176/" target = "_blank">
+							<img class = "icon" src = "logos/linkedin.png" />
+						</a>
+						<!-- courtesy of Dave Gandy https://image.flaticon.com/icons/png/512/25/25657.png -->
+						<a href = "https://github.com/Oumalicious" target = "_blank">
+							<img class = "icon" src = "logos/github.png" />
+						</a>
+					</div>
+				</div>
+				<div id="aboutMe" class = "containerAboutMe underneath" style="display: none; font-size: 26px;">
+					<p>
+						Defeat is my success. I'm not afraid of making mistakes because they show me I have something to work on.
+						I'm equally passionate about coding and my hobbies, so this section is dedicated to my two pastimes.
+					</p>
+					<p>
+						I picked up the piano when I was 8. I applied for Mark Twain Intermediate School but failed the entry tests in both math and music.
+						My piano teacher at the time was extremely dissapointed in me and made my cry in front of my parents. "I have 9 students and 7 of them got into Mark Twain.
+						Vincent is one of the two students who did not get in. He should be ashamed of himself." My parents fired the teacher and I started to only play music I found online.
+						At first, I played piano pieces arranged by youtubers to spite my previous teacher and the ABRSM (Associated Board of the Royal Schools of Music). Over several years, my  intial drive to prove someone made me become a better piano player.
+						I eventually continued my path in ABRSM and passed their final Grade 8 exam while I was in highschool. And now, I'm practising pieces that I used to not be able to play.
+					</p>
+					<p>
+						Running has been my replacement for competitive swimming. It can be done anywhere, but New York City has fantastic running spots like Central Park, Prospect Park, and Shore Road.
+						Flexible joints and posture are key to running. However, I was convinced that my body was physically incapable of flexibility and endurance. I couldn't touch my toes or run more than 2 miles without stopping.
+						My flat feet and bowed legs make long distance running hurt my feet and a doctor I met discouraged me from running. Then I met several runners and personal trainers and they told me tips for me to work on my problems,
+						but it required time and dedication. I learned to have patience and grinded on my physical fit. I was able to touch my toes in less than a week and my posture became ideal in a few months.
+						Initially I couldn't run more than 2 miles, but now I completed the NYC Marathon twice. I also did two 5 Boro Bike Tours and one mini triathalon.
+						These type of activities also taught me that physical strength doesn't mean having a six pack or benching a heavy weight. (almost) Anybody can fit their schedule to include a light run and some stretches once or twice a week.
+						Witnessing overweight and disabled runners pass me in a marathon show me that people should realize their potentials and stop gatekeeping themselves.
+					</p>
+				</div>
+				<div id="coding" class = "containerCoding underneath" style="display: none; font-size: 23px;">
+					<p>
+						My coding journey started at Brooklyn Technical Highschool. In your sophmore year at this specialized highschool, you get to pick your 'major' for the next 2 years.
+						Choosing Software Engineering, I learned <span class="italicWord">HTML</span>, <span class="italicWord">CSS</span>,
+						<span class="italicWord">Javascript</span>, and <span class="italicWord">Java</span>.
+						I got an early understanding of <span class="italicWord">Object Oriented Programming</span> and the <span class="italicWord">SDLC Life Cycle</span>.
+						I continued my interest in at Brooklyn College because it was affordable and I worked part-time as a lifeguard.
+					</p>
+					<p>
+						At the start of 2018, I interned as a FullStack Engineer at the <a href="https://www.health.ny.gov/health_care/medicaid/program/longterm/cdpap.htm" target = "_blank">CDPAP</a> agency <a href = "https://www.allstarhc.com/" class ="special">Allstar Homecare Agency</a>.
+						I was glad to be a part of the CDPAP workforce because <a href="https://www.nysed.gov/career-technical-education/home-health-aide"> Home Health Aides</a> complement the holistic preferences of Chinese culture.
+						Traditional Asian households emphasize the importance of <a href="https://en.wikipedia.org/wiki/Filial_piety">filial piety</a>, so providing a HHA to a family member provides company and a piece of mind.
+						My tasks included display HHA and client information (<span class="italicWord">ReactJS</span>, <span class="italicWord">Node.js</span>, and
+						<span class="italicWord">MongoDB</span>), stylzing with open-sourced frame works (<span class="italicWord">Elemental.UI</span> and
+						<span class="italicWord">AgGrid</span>), and parsing document data (<span class="italicWord">jQuery</span>,
+						<span class="italicWord">Moment.js</span>, and <span class="italicWord">PDFtk</span>).
+					</p>
+					<p>
+						My proudest project is an exam simulator with an emphasis of memorization by manipulating the <span class="italicWord">DOM</span> and reading <span class="italicWord">JSON</span> files.
+						This app is unique because it's a layered vocabulary memorization tool.
+						There are 3 aspects when it comes to learning character based languages: the character itself <span class="chinese">(樂/乐)</span>, pronunciation <span class="chinese">(Lè)</span>, and the translation <span class="chinese">(happy)</span>.
+						Initially, this was a whimsical project that helped me study for 1 Chinese test, but I saw its potential to be more dynamic.
+						Tests are editable and combinable, can save incorrect answers into a test, and logs the elapsed time per each question.
+						I showed the app to my friend who was pursuing a Master's in Occupational Therapy, and it provided positive results.
+						I see a future where anybody can use my app to study.
+					</p><br />
+					<div style = "display: flex; justify-content: center">
+						<div>
+							<div style="font-size: 32px; font-weight: bold; text-align: center">Skills</div><br />
+							<div style="display: flex; padding-left: 200px">
+								<div class = "skillBlock">
+									<div>
+										Proficient
+									</div>
+									<ul>
+										<li>Java</li>
+										<li>Javascript</li>
+										<li>HTML/CSS</li>
+									</ul>
+								</div>
+								<div class = "skillBlock">
+									<div>
+										Secondary Skills
+									</div>
+									<ul>
+										<li>Bash</li>
+										<li>Postgres/MySQL</li>
+										<li>Oracle</li>
+									</ul>
+								</div>
+								<div class = "skillBlock">
+									<div>
+										Skills with Experience
+									</div>
+									<ul>
+										<li>Docker/Kubernetes</li>
+										<li>ReactJS/MongoDB</li>
+										<li>Jenkins/Ansible</li>
+									</ul>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div style = "display: flex; justify-content: center">
-					<img class ="portfolioPic" src="./pics/linkedinPic.jpg" width="200" height="200" />
-				</div><br />
-				<div style = "display: flex; justify-content: center">
-					<!-- courtesy of google https://img-premium.flaticon.com/png/512/61/61109.png?token=exp=1623202196~hmac=880556c79af1561c396508641292a379 -->
-					<a href = "https://www.linkedin.com/in/vincent-xue-ab2214176/" target = "_blank">
-						<img class = "icon" src = "logos/linkedin.png" />
-					</a>
-					<!-- courtesy of Dave Gandy https://image.flaticon.com/icons/png/512/25/25657.png -->
-					<a href = "https://github.com/Oumalicious" target = "_blank">
-						<img class = "icon" src = "logos/github.png" />
-					</a>
+				<div id="projects" class = "containerProjects underneath" style="display: none; font-size: 26px">
+					<p>
+						<div>Character Reviewer App</div>
+						<span>link: </span><a href = "https://oumalicious.github.io/VocabularyReviewer/" target = "_blank">https://oumalicious.github.io/VocabularyReviewer/</a>
+						<ul>
+							<li>Uses a double multiple-choice format, testing the character's pronounciation and translation to the native tongue.</li>
+							<li>Allows the user to create their own tests by saving it into a JSON. Tests can be combined and editted.</li>
+							<li>Features a question timer for rapid testing or progress checking, and a test timer to simulate a timed environment.</li>
+							<li>The results display the user's choices, answer key, and the questions that were marked incorrect, which can be saved into a test/JSON.</li>
+						</ul>
+					</p>
 				</div>
-			</div>
-			<div id="aboutMe" class = "containerAboutMe" style="display: none; font-size: 26px">
-				<div>
-					Defeat is my success. I'm not afraid of making mistakes because they show me I have something to work on.
-					I'm equally passionate about coding and my hobbies, so this section is dedicated to my two pastimes.
-				</div><br />
-				<div>
-					I picked up the piano when I was 8. I applied for Mark Twain Intermediate School but failed the entry tests in both math and music.
-					My piano teacher at the time was extremely dissapointed in me and made my cry in front of my parents. "I have 9 students and 7 of them got into Mark Twain.
-					Vincent is one of the two students who did not get in. He should be ashamed of himself." My parents fired the teacher and I started to only play music I found online.
-					At first, I played piano pieces arranged by youtubers to spite my previous teacher and the ABRSM (Associated Board of the Royal Schools of Music). Over several years, my  intial drive to prove someone made me become a better piano player.
-					I eventually continued my path in ABRSM and passed their final Grade 8 exam while I was in highschool. And now, I'm practising pieces that I used to not be able to play.
-				</div><br />
-				<div>
-					Running has been my replacement for competitive swimming. It can be done anywhere, but New York City has fantastic running spots like Central Park, Prospect Park, and Shore Road.
-					Flexible joints and posture are key to running. However, I was convinced that my body was physically incapable of flexibility and endurance. I couldn't touch my toes or run more than 2 miles without stopping.
-					My flat feet and bowed legs make long distance running hurt my feet and a doctor I met discouraged me from running. Then I met several runners and personal trainers and they told me tips for me to work on my problems,
-					but it required time and dedication. I learned to have patience and grinded on my physical fit. I was able to touch my toes in less than a week and my posture became ideal in a few months.
-					Initially I couldn't run more than 2 miles, but now I completed the NYC Marathon twice. I also did two 5 Boro Bike Tours and one mini triathalon.
-					These type of activities also taught me that physical strength doesn't mean having a six pack or benching a heavy weight. (almost) Anybody can fit their schedule to include a light run and some stretches once or twice a week.
-					Witnessing overweight and disabled runners pass me in a marathon show me that people should realize their potentials and stop gatekeeping themselves.
+				<div id="contactinfo" class = "containerBasic underneath" style="display: none; font-size: 26px;">
+					<p>
+						Email: vincentxue9029@gmail.com
+					</p>
+					<p>
+						Github: <a href = "https://github.com/Oumalicious" target = "_blank">https://github.com/Oumalicious</a>
+					</p>
+					<p>
+						Linkedin: <a href = "https://www.linkedin.com/in/vincent-xue-ab2214176/"  target = "_blank">https://www.linkedin.com/in/vincent-xue-ab2214176/</a>
+					</p>
+					<p>
+						Indeed: <a href = "https://my.indeed.com/p/vincentx-6jr8524" target = "_blank">https://my.indeed.com/p/vincentx-6jr8524</a>
+					</p>
 				</div>
-			</div>
-			<div id="coding" class = "containerCoding" style="display: none; font-size: 25px">
-				<p>
-					My coding journey started at Brooklyn Technical Highschool. In your sophmore year at specialized highschool, you get to pick your 'major' for remaining time of school.
-					Choosing Software Engineering, I learned <span class="italicWord">HTML</span>, <span class="italicWord">CSS</span>,
-					<span class="italicWord">Javascript</span>, and <span class="italicWord">Java</span>.
-					At my time in BTHS, I emulated my childhood point and click adventure games, created a wikipedia page, and developed a lock picking simulator.
-					I got an early understanding of <span class="italicWord">Object Oriented Programming</span> and the
-					<span class="italicWord">SDLC Life Cycle</span>. I continued my interest in Computer Science at Brooklyn College because it was affordable and I worked part-time as a lifeguard.
-				</p>
-				<p>
-					At the start of 2018, I interned as a FullStack Engineer at the <a href="https://www.health.ny.gov/health_care/medicaid/program/longterm/cdpap.htm" target = "_blank">CDPAP</a> agency <a href = "https://www.allstarhc.com/" class ="special">Allstar Homecare Agency</a>.
-					I was glad to be a part of the CDPAP workforce because <a href="https://www.nysed.gov/career-technical-education/home-health-aide"> Home Health Aides</a> complement the holistic preferences of Chinese culture.
-					Traditional Asian households emphasize the importance of <a href="https://en.wikipedia.org/wiki/Filial_piety">filial piety</a>, so providing a HHA to a family member provides company and a piece of mind.
-					My tasks included display HHA and client information (<span class="italicWord">ReactJS</span>, <span class="italicWord">Node.js</span>, and
-					<span class="italicWord">MongoDB</span>), stylzing with open-sourced frame works (<span class="italicWord">Elemental.UI</span> and
-					<span class="italicWord">AgGrid</span>), and parsing document data (<span class="italicWord">jQuery</span>,
-					<span class="italicWord">Moment.js</span>, and <span class="italicWord">PDFtk</span>).
-				</p>
-				<p>
-					My proudest project is an exam simulator with an emphasis of memorization by manipulating the <span class="italicWord">DOM</span> and reading <span class="italicWord">JSON</span> files.
-					This app is unique because it's a layered vocabulary memorization tool.
-					There are 3 aspects when it comes to learning character based languages: the character itself <span class="chinese">(樂/乐)</span>, pronunciation <span class="chinese">(Lè)</span>, and the translation <span class="chinese">(happy)</span>.
-					Initially, this was a whimsical project that helped me study for 1 Chinese test, but I saw its potential to be more dynamic.
-					Tests are editable and combinable, can save incorrect answers into a test, and logs the elapsed time per each question.
-					I showed the app to my friend who was pursuing a Master's in Occupational Therapy, and it provided positive results.
-					I see a future where anybody can use my app to study.
-				</p><br />
-				<div style = "display: flex; justify-content: center">
-					<div>
-						<div style="font-size: 32px; font-weight: bold; text-align: center">Skills</div><br />
-						<div style="display: flex; padding-left: 200px">
-							<div class = "skillBlock">
-								<div>
-									Proficient
-								</div>
-								<ul>
-									<li>Java</li>
-									<li>Javascript</li>
-									<li>HTML/CSS</li>
-								</ul>
-							</div>
-							<div class = "skillBlock">
-								<div>
-									Secondary Skills
-								</div>
-								<ul>
-									<li>Bash</li>
-									<li>Postgres</li>
-									<li>Oracle</li>
-									<li>MySQL</li>
-								</ul>
-							</div>
-							<div class = "skillBlock">
-								<div>
-									Skills with Experience
-								</div>
-								<ul>
-									<li>Docker/Kubernetes</li>
-									<li>ReactJS/MongoDB</li>
-									<li>C#</li>
-									<li>Excel</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="projects" class = "containerProjects" style="display: none; font-size: 26px">
-				<div>
-					<div>Character Reviewer App</div>
-					<span>link: </span><a href = "https://oumalicious.github.io/VocabularyReviewer/" target = "_blank">https://oumalicious.github.io/VocabularyReviewer/</a>
-					<ul>
-						<li>Uses a double multiple-choice format, testing the character's pronounciation and translation to the native tongue.</li>
-						<li>Allows the user to create their own tests by saving it into a JSON. Tests can be combined and editted.</li>
-						<li>Features a question timer for rapid testing or progress checking, and a test timer to simulate a timed environment.</li>
-						<li>The results display the user's choices, answer key, and the questions that were marked incorrect, which can be saved into a test/JSON.</li>
-					</ul>
-				</div>
-				<!-- <div> -->
-					<!-- <div>/<div> -->
-					<!-- <ul> -->
-					<!-- </ul> -->
-				<!-- </div> -->
-			</div>
-			<div id="contactinfo" class = "containerBasic" style="display: none; font-size: 26px;">
-				<div>
-					Email: vincentxue9029@gmail.com
-				</div><br />
-				<div>
-					Github: <a href = "https://github.com/Oumalicious" target = "_blank">https://github.com/Oumalicious</a>
-				</div><br />
-				<div>
-					Linkedin: <a href = "https://www.linkedin.com/in/vincent-xue-ab2214176/"  target = "_blank">https://www.linkedin.com/in/vincent-xue-ab2214176//</a>
-				</div><br />
-				<div>
-					Indeed: <a href = "https://my.indeed.com/p/vincentx-6jr8524" target = "_blank">https://my.indeed.com/p/vincentx-6jr8524</a>
-				</div><br />
 			</div>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -361,10 +383,11 @@
 					show(e.target.id)
 				});
 				$("#contactinfoHeader").click(function(e){
-				show(e.target.id)
+					show(e.target.id)
 				});
 			});
 //			generateOnClick();
+			createBufferBlock()
 		</script>
 	</body>
 </html>
