@@ -34,19 +34,23 @@
 		hr {
 			width: 98vw
 		}
-		.containerBasic{
-			padding: 10vh 150px 100px;
-		}
-		.containerAboutMe{
-			padding: 3vh 18% 90px;
-			font-size: 23px;
-		}
-		.containerProjects{
-			padding: 3vh 8% 50px;
-		}
+        .containerBasic {
+            padding: 10vh 150px 100px;
+            position: relative;
+        }
+        .containerAboutMe {
+            padding: 3vh 18% 90px;
+            font-size: 23px;
+            position: relative;
+        }
+        .containerProjects {
+            padding: 3vh 8% 50px;
+            position: relative;
+        }
 		.containerCoding{
 			padding: 3vh 18% 0px;
 			font-size: 23px;
+			position: relative;
 		}
 		.containerFlex{
 			display: flex;
@@ -170,7 +174,7 @@
 	</script>
 <!--	<body style="margin: 0px; font-family: sans-serif; background-color: #ECF0F1; overflow: hidden">
 -->	<body style="margin: 0px; font-family: sans-serif; background-color: #ECF0F1;">
-		<div id="divContainer">
+		<div id="divContainer" style="z-index: 9999">
 			<div>
 				<div style="position: fixed; top: 0; left: 50vw; transform: translate(-50%, 0); background-color: #ECF0F1">
 					<div id="header">
@@ -287,6 +291,9 @@
 						<span class="italicWord">MongoDB</span>), stylzing with open-sourced frame works (<span class="italicWord">Elemental.UI</span> and
 						<span class="italicWord">AgGrid</span>), and parsing document data (<span class="italicWord">jQuery</span>,
 						<span class="italicWord">Moment.js</span>, and <span class="italicWord">PDFtk</span>).
+					</p>
+					<p>
+						TODO
 					</p>
 					<p>
 						My proudest project is an exam simulator with an emphasis of memorization by manipulating the <span class="italicWord">DOM</span> and reading <span class="italicWord">JSON</span> files.
