@@ -34,24 +34,27 @@
 		hr {
 			width: 98vw
 		}
-        .containerBasic {
-            padding: 10vh 150px 100px;
-            position: relative;
+        .containerFrontPage {
+
         }
         .containerAboutMe {
             padding: 3vh 18% 90px;
             font-size: 23px;
-            position: relative;
+            position: absolute;
         }
         .containerProjects {
             padding: 3vh 8% 50px;
-            position: relative;
+            position: absolute;
         }
-		.containerCoding{
-			padding: 3vh 18% 0px;
-			font-size: 23px;
-			position: relative;
-		}
+        .containerCoding {
+            padding: 3vh 18% 0px;
+            font-size: 23px;
+            position: absolute;
+        }
+        .containerContactInfo {
+            padding: 10vh 150px 100px;
+            position: absolute;
+        }
 		.containerFlex{
 			display: flex;
 			align-items: center;
@@ -174,7 +177,7 @@
 	</script>
 <!--	<body style="margin: 0px; font-family: sans-serif; background-color: #ECF0F1; overflow: hidden">
 -->	<body style="margin: 0px; font-family: sans-serif; background-color: #ECF0F1;">
-		<div id="divContainer" style="z-index: 9999">
+		<div id="divContainer">
 			<div>
 				<div style="position: fixed; top: 0; left: 50vw; transform: translate(-50%, 0); background-color: #ECF0F1">
 					<div id="header">
@@ -207,7 +210,7 @@
 			<div id="bufferDiv">
 			</div>
 			<div id="headerTextContainer">
-				<div id="frontpage" class = "containerBasic underneath">
+				<div id="frontpage" class = "containerFrontPage underneath">
 					<div style = "display: flex; justify-content: center; padding: 2% 0 2%">
 						<div id="intro" style="font-size: 1.65em; padding: 4%; padding-right: 5%">
 							<div class = "containerFlex">
@@ -354,7 +357,7 @@
 						</ul>
 					</p>
 				</div>
-				<div id="contactinfo" class = "containerBasic underneath" style="display: none; font-size: 26px;">
+				<div id="contactinfo" class = "containerContactInfo underneath" style="display: none; font-size: 26px;">
 					<p>
 						Email: vincentxue9029@gmail.com
 					</p>
