@@ -5,178 +5,11 @@
 		<title>
 			Portfolio
 		</title>
+		<link rel="stylesheet" href="portfolioStyle.css">
 		<meta charset="UTF-8">
 	</head>
-	<style>
-		#headerFloat > div{
-			font-size: 20px;
-			margin: 22px 20px 22px 20px;
-			font-weight: bold;
-		}
-		#headerFloat > .header:hover{
-			cursor: pointer;
-		}
-		#intro > div{
-			padding: 3px 0px 3px;
-			width: 600px;
-		}
-		#aboutMe > div{
-			padding: 6px;
-		}
-		.divLink{
-			color: blue;
-			text-decoration: underline;
-		}
-
-        #coding::-webkit-scrollbar-thumb {
-			background-color: red;
-        }
-		hr {
-			width: 98vw
-		}
-        .containerFrontPage {
-
-        }
-        .containerAboutMe {
-            padding: 3vh 18% 90px;
-            font-size: 23px;
-            position: absolute;
-        }
-        .containerProjects {
-            padding: 3vh 8% 50px;
-            position: absolute;
-        }
-        .containerCoding {
-            padding: 3vh 18% 0px;
-            font-size: 23px;
-            position: absolute;
-        }
-        .containerContactInfo {
-            padding: 10vh 150px 100px;
-            position: absolute;
-        }
-		.containerFlex{
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-		.underneath {
-			z-index: -1;
-		}
-		.frontPageSnippet{
-			padding: 2%;
-		}
-		.portfolioPic{
-			width: 152px;
-			height: 152px;
-			border-radius: 50%;
-		}
-		.icon{
-			width: 2.2em;
-			height: 2.2em;
-			padding: 2px;
-		}
-		.icon:hover{
-			opacity: .35;
-			cursor: pointer;
-		}
-		.chinese{
-			color: #fa9124;
-		}
-		.italicWord{
-			font-style: italic;
-			color: #0099FF;
-		}
-		.special{
-			color: #005f00;
-		}
-		.special:link{
-			text-decoration: none;
-		}
-		.skillBlock{
-			padding-right: 50px;
-		}
-        #sidebar {
-            top: 0;
-            bottom: 0;
-        }
-	</style>
-	<script>
-		var SHOWING = false;
-
-		function show(id) {
-            id = id.replace("Header", "");
-			var selectedBio = document.getElementById(id);
-			if (SHOWING) {
-				return;
-			}
-			if (selectedBio.style.display != "none") {
-				return;
-			}
-            SHOWING = true;
-			var frontpage = document.getElementById("frontpage");
-			var aboutMe = document.getElementById("aboutMe");
-			var coding = document.getElementById("coding");
-			var projects = document.getElementById("projects");
-			var contactinfo = document.getElementById("contactinfo");
-			var headerarray = [frontpage, aboutMe, coding, projects, contactinfo];
-			var selectedHeader = document.getElementById(id + "Header");
-			var headerDiv = document.getElementById("header");
-			selectedHeader.style.color = "red";
-			for (var i in headerarray) {
-				if (headerarray[i].id == id) {
-					continue;
-				}
-				var header = document.getElementById(headerarray[i].id + "Header");
-				header.style.color = "black";
-				$("#" + headerarray[i].id).fadeOut(275);
-			}
-			$("#" + id).delay(400).fadeIn(300);
-            setTimeout(function(){
-               SHOWING = false;
-            }, 580)
-		}
-
-		function createBufferBlock() {
-			let header = document.getElementById("header");
-			let bufferBlock = document.getElementById("bufferDiv");
-			let headerTextContainer = document.getElementById("headerTextContainer")
-			bufferBlock.style.height = header.offsetHeight + "px";
-			headerTextContainer.style.top = bufferBlock.style.height + "px";
-		}
-
-		<!-- function generateOnClick(){ -->
-			<!-- let projects = document.getElementById("projectContainer").children; -->
-			<!-- for(let i = 0; i < projects.length; i++){ -->
-				<!-- projects[i].onclick = function(){ -->
-					<!-- let frame = document.getElementById("projectFrame"); -->
-					<!-- frame.src = "project" + (i+1) + "/index.html"; -->
-				<!-- } -->
-			<!-- } -->
-		<!-- } -->
-		
-		<!-- function resizeFrame(frame){ -->
-			<!-- frame.style.width = frame.contentWindow.document.documentElement.scrollWidth + 'px'; -->
-			<!-- frame.style.height = frame.contentWindow.document.documentElement.scrollHeight + 'px'; -->
-		<!-- } -->
-		
-		function onMouseOver(header){
-			if(header.style.color != "red") {
-				var ele = header.id;
-				document.getElementById(ele).style.color = "#999E9E";
-			}
-		}
-		
-		function onMouseLeave(header){
-			if(header.style.color != "red") {
-				var ele = header.id;
-				document.getElementById(ele).style.color = "black";
-			}
-		}
-		
-	</script>
-<!--	<body style="margin: 0px; font-family: sans-serif; background-color: #ECF0F1; overflow: hidden">
--->	<body style="margin: 0px; font-family: sans-serif; background-color: #ECF0F1;">
+	<script src="portfolioScript.js"></script>
+	<body style="margin: 0px; font-family: sans-serif; background-color: #ECF0F1;">
 		<div id="divContainer">
 			<div>
 				<div style="position: fixed; top: 0; left: 50vw; transform: translate(-50%, 0); background-color: #ECF0F1">
@@ -185,19 +18,19 @@
 							<div style="color: #007500; font-size: 23px; position: absolute; left: 8%; top: 0%">
 								Portfolio of Vincent Xue
 							</div>
-							<div id="frontpageHeader" class="header" style="color:red" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+							<div id="frontpageHeader" class="header" style="color:red" onmouseover="portfolioScript.onMouseOver(this)" onmouseleave="portfolioScript.onMouseLeave(this)">
 								Front page
 							</div>
-							<div id="aboutMeHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+							<div id="aboutMeHeader" class="header" onmouseover="portfolioScript.onMouseOver(this)" onmouseleave="portfolioScript.onMouseLeave(this)">
 								About Me
 							</div>
-							<div id="codingHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+							<div id="codingHeader" class="header" onmouseover="portfolioScript.onMouseOver(this)" onmouseleave="portfolioScript.onMouseLeave(this)">
 								Coding
 							</div>
-							<div id="projectsHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+							<div id="projectsHeader" class="header" onmouseover="portfolioScript.onMouseOver(this)" onmouseleave="portfolioScript.onMouseLeave(this)">
 								Projects
 							</div>
-							<div id="contactinfoHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+							<div id="contactinfoHeader" class="header" onmouseover="portfolioScript.onMouseOver(this)" onmouseleave="onMouseLeave(this)">
 								Contact Info
 							</div>
 						</div>
@@ -209,7 +42,7 @@
 			</div>
 			<div id="bufferDiv">
 			</div>
-			<div id="headerTextContainer">
+			<div id="textContainer">
 				<div id="frontpage" class = "containerFrontPage underneath">
 					<div style = "display: flex; justify-content: center; padding: 2% 0 2%">
 						<div id="intro" style="font-size: 1.65em; padding: 4%; padding-right: 5%">
@@ -345,7 +178,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="projects" class = "containerProjects underneath" style="display: none; font-size: 26px">
+				<div id="projects" class = "containerProjects underneath" style="display: none;">
 					<p>
 						<div>Character Reviewer App</div>
 						<span>link: </span><a href = "https://oumalicious.github.io/VocabularyReviewer/" target = "_blank">https://oumalicious.github.io/VocabularyReviewer/</a>
@@ -377,26 +210,26 @@
 		<script>
 			$(document).ready(function(e2){			
 				$("#frontpageHeader").click(function(e){
-					show(e.target.id)
+					portfolioScript.show(e.target.id)
 				});
 				$("#aboutMeHeader").click(function(e){
-					show(e.target.id)
+					portfolioScript.show(e.target.id)
 				});
 				$("#codingHeader").click(function(e){
-					show(e.target.id)
+					portfolioScript.show(e.target.id)
 				});
 				$("#projectsHeader").click(function(e){
-					show(e.target.id)
+					portfolioScript.show(e.target.id)
 				});
 				$("#labsHeader").click(function(e){
-					show(e.target.id)
+					portfolioScript.show(e.target.id)
 				});
 				$("#contactinfoHeader").click(function(e){
-					show(e.target.id)
+					portfolioScript.show(e.target.id)
 				});
 			});
 //			generateOnClick();
-			createBufferBlock()
+			portfolioScript.createBufferBlock()
 		</script>
 	</body>
 </html>

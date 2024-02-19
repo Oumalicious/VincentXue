@@ -1,0 +1,114 @@
+#headerFloat > div {
+    font-size: 20px;
+    margin: 22px 20px 22px 20px;
+    font-weight: bold;
+}
+
+#headerFloat > .header:hover {
+    cursor: pointer;
+}
+
+#intro > div {
+    padding: 3px 0px 3px;
+    width: 600px;
+}
+
+#aboutMe > div {
+    padding: 6px;
+}
+
+.divLink {
+    color: blue;
+    text-decoration: underline;
+}
+
+#coding::-webkit-scrollbar-thumb {
+    background-color: red;
+}
+
+hr {
+    width: 98vw
+}
+
+.containerFrontPage {
+}
+
+.containerAboutMe {
+    padding: 3vh 18% 90px;
+    font-size: 23px;
+    position: absolute;
+}
+
+.containerProjects {
+    padding: 3vh 8% 50px;
+    font-size: 23px;
+    position: absolute;
+}
+
+.containerCoding {
+    padding: 3vh 18% 0px;
+    font-size: 23px;
+    position: absolute;
+}
+
+.containerContactInfo {
+    padding: 10vh 150px 100px;
+    position: absolute;
+}
+
+.containerFlex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.underneath {
+    z-index: -1;
+}
+
+.frontPageSnippet {
+    padding: 2%;
+}
+
+.portfolioPic {
+    width: 152px;
+    height: 152px;
+    border-radius: 50%;
+}
+
+.icon {
+    width: 2.2em;
+    height: 2.2em;
+    padding: 2px;
+}
+
+    .icon:hover {
+        opacity: .35;
+        cursor: pointer;
+    }
+
+.chinese {
+    color: #fa9124;
+}
+
+.italicWord {
+    font-style: italic;
+    color: #0099FF;
+}
+
+.special {
+    color: #005f00;
+}
+
+.special:link {
+    text-decoration: none;
+}
+
+.skillBlock {
+    padding-right: 50px;
+}
+
+#sidebar {
+    top: 0;
+    bottom: 0;
+}
