@@ -9,29 +9,32 @@
 		<meta charset="UTF-8">
 	</head>
 	<script src="portfolioScript.js"></script>
-	<body style="margin: 0px; font-family: sans-serif; background-color: #ECF0F1;">
-		<div id="divContainer">
+	<body style="font-family: sans-serif; background-color: #ECF0F1;">
+		<div>
 			<div>
-				<div style="position: fixed; top: 0; left: 50vw; transform: translate(-50%, 0); background-color: #ECF0F1">
+				<div id="portfolioHeader">
 					<div id="header">
 						<div id="headerFloat" style="display: flex;	justify-content: center">
-							<div style="color: #007500; font-size: 23px; position: absolute; left: 8%; top: 0%">
+							<div id="portfolioName">
 								Portfolio of Vincent Xue
 							</div>
-							<div id="frontpageHeader" class="header" style="color:red" onmouseover="portfolioScript.onMouseOver(this)" onmouseleave="portfolioScript.onMouseLeave(this)">
+							<div id="frontpageHeader" class="header hoverClick" style="color:red" onmouseover="portfolioScript.onMouseOver(this)" onmouseleave="portfolioScript.onMouseLeave(this)">
 								Front page
 							</div>
-							<div id="aboutMeHeader" class="header" onmouseover="portfolioScript.onMouseOver(this)" onmouseleave="portfolioScript.onMouseLeave(this)">
+							<div id="aboutMeHeader" class="header hoverClick" onmouseover="portfolioScript.onMouseOver(this)" onmouseleave="portfolioScript.onMouseLeave(this)">
 								About Me
 							</div>
-							<div id="codingHeader" class="header" onmouseover="portfolioScript.onMouseOver(this)" onmouseleave="portfolioScript.onMouseLeave(this)">
+							<div id="codingHeader" class="header hoverClick" onmouseover="portfolioScript.onMouseOver(this)" onmouseleave="portfolioScript.onMouseLeave(this)">
 								Coding
 							</div>
-							<div id="projectsHeader" class="header" onmouseover="portfolioScript.onMouseOver(this)" onmouseleave="portfolioScript.onMouseLeave(this)">
+							<div id="projectsHeader" class="header hoverClick" onmouseover="portfolioScript.onMouseOver(this)" onmouseleave="portfolioScript.onMouseLeave(this)">
 								Projects
 							</div>
-							<div id="contactinfoHeader" class="header" onmouseover="portfolioScript.onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+							<div id="contactinfoHeader" class="header hoverClick" onmouseover="portfolioScript.onMouseOver(this)" onmouseleave="portfolioScript.onMouseLeave(this)">
 								Contact Info
+							</div>
+							<div id="previewToggle" class="hoverClick" onmouseover="portfolioScript.onMouseOver(this)" onmouseleave="portfolioScript.onMouseLeave(this)">
+								Preview toggle: On
 							</div>
 						</div>
 					</div>
@@ -90,98 +93,122 @@
 					</div>
 				</div>
 				<div id="aboutMe" class = "containerAboutMe underneath" style="display: none;">
-					<p>
-						Learning is my driver and motivation. I value moments of blunder because they provide valuable learning experiences.
-						You can only grow as a person if you can internalize moments of uneasiness and uncertainty, while recognizing situations that are outside the scope of your abilities.
-						I'm equally passionate about coding and my hobbies, so this section is dedicated to my pastimes.
-					</p>
-					<p>
-						I picked up the piano when I was 8. I applied for Mark Twain Intermediate School but failed the entry tests in both math and music.
-						My piano teacher at the time was extremely dissapointed, and humiliated me in front of my parents for not making the cut.
-						As a result, I learned that classical music has a grey area of elitism and immediately sought to leave the <a href="https://en.wikipedia.org/wiki/ABRSM">ABRSM</a>.
-						I leaned on piano covers I found online and enjoyed piano outside the typical composers like Mozart and Bach.
-						I eventually revisited the examination board to complete the last few grades.
-						And so, I'm thankful for the embarrassment that I received from my first teacher because it was a <a href="https://en.wikipedia.org/wiki/Butterfly_effect">butterfly effect</a> for the music that I enjoy.
-					</p>
-					<p>
-						Flexible joints and posture are key to running, but I used to be convinced that my body was physically incapable of either.
-						My <a href="https://en.wikipedia.org/wiki/Flat_feet">flat feet</a> and <a href="https://en.wikipedia.org/wiki/Genu_varum">bowed legs</a> make long distance running hurt my feet and many doctors discouraged me from long periods of running.
-						While overcomming my mental and physical blockers by participating in the <a href="https://en.wikipedia.org/wiki/New_York_Road_Runners">NYRR</a>, I became infatuated with the world of runners.
-						Runners are more diverse than the colors of the rainbow, coming in different sizes and conditions.
-						Running aside them gives you a sense of encouragement, positivity, and excitement. As of 2024, I've ran 3 Marathons, biked 2 <a href="https://www.bike.nyc/events/td-five-boro-bike-tour/">Five Boro Bike Tours</a>, and completed 2 sprint triathalons.
-					</p>
-				</div>
-				<div id="coding" class = "containerCoding underneath" style="display: none;">
-					<p>
-						My coding journey started at Brooklyn Technical Highschool. In your sophmore year at this specialized highschool, you get to pick your 'major' for the next 2 years.
-						Choosing Software Engineering, I learned <span class="italicWord">HTML</span>, <span class="italicWord">CSS</span>,
-						<span class="italicWord">Javascript</span>, and <span class="italicWord">Java</span>.
-						I got an early understanding of <span class="italicWord">Object Oriented Programming</span> and the <span class="italicWord">SDLC Life Cycle</span>.
-						I continued my interest in at Brooklyn College because it was affordable and I worked part-time as a lifeguard.
-					</p>
-					<p>
-						At the start of 2018, I interned as a FullStack Engineer at the <a href="https://www.health.ny.gov/health_care/medicaid/program/longterm/cdpap.htm" target = "_blank">CDPAP</a> agency <a href = "https://www.allstarhc.com/" class ="special">Allstar Homecare Agency</a>.
-						I was glad to be a part of the CDPAP workforce because <a href="https://www.nysed.gov/career-technical-education/home-health-aide"> Home Health Aides</a> complement the holistic preferences of Chinese culture.
-						Traditional Asian households emphasize the importance of <a href="https://en.wikipedia.org/wiki/Filial_piety">filial piety</a>, so providing a HHA to a family member provides company and a piece of mind.
-						My tasks included display HHA and client information (<span class="italicWord">ReactJS</span>, <span class="italicWord">Node.js</span>, and
-						<span class="italicWord">MongoDB</span>), stylzing with open-sourced frame works (<span class="italicWord">Elemental.UI</span> and
-						<span class="italicWord">AgGrid</span>), and parsing document data (<span class="italicWord">jQuery</span>,
-						<span class="italicWord">Moment.js</span>, and <span class="italicWord">PDFtk</span>).
-					</p>
-					<p>
-						TODO
-					</p>
-					<p>
-						My proudest project is an exam simulator with an emphasis of memorization by manipulating the <span class="italicWord">DOM</span> and reading <span class="italicWord">JSON</span> files.
-						This app is unique because it's a layered vocabulary memorization tool.
-						There are 3 aspects when it comes to learning character based languages: the character itself <span class="chinese">(樂/乐)</span>, pronunciation <span class="chinese">(Lè)</span>, and the translation <span class="chinese">(happy)</span>.
-						Initially, this was a whimsical project that helped me study for 1 Chinese test, but I saw its potential to be more dynamic.
-						Tests are editable and combinable, can save incorrect answers into a test, and logs the elapsed time per each question.
-						I showed the app to my friend who was pursuing a Master's in Occupational Therapy, and it provided positive results.
-						I see a future where anybody can use my app to study.
-					</p><br />
-					<div style = "display: flex; justify-content: center">
-						<div>
-							<div style="font-size: 32px; font-weight: bold; text-align: center">Skills</div><br />
-							<div style="display: flex; padding-left: 200px">
-								<div class = "skillBlock">
-									<div>
-										Proficient
-									</div>
-									<ul>
-										<li>Java</li>
-										<li>Javascript</li>
-										<li>HTML/CSS</li>
-									</ul>
-								</div>
-								<div class = "skillBlock">
-									<div>
-										Secondary Skills
-									</div>
-									<ul>
-										<li>Bash</li>
-										<li>Postgres/MySQL</li>
-										<li>Oracle</li>
-									</ul>
-								</div>
-								<div class = "skillBlock">
-									<div>
-										Skills with Experience
-									</div>
-									<ul>
-										<li>Docker/Kubernetes</li>
-										<li>ReactJS/MongoDB</li>
-										<li>Jenkins/Ansible</li>
-									</ul>
-								</div>
+					<div>
+						<p id="aboutMeIntro">
+							You can only grow as a person if you can internalize moments of uneasiness and uncertainty, while recognizing situations that are outside your scope.
+							I'm equally passionate about my career choice and hobbies, as one should strive to be.
+						</p>
+					</div>
+                    <div class="containerFlex">
+						<p id="aboutMePiano">
+							I passed the final piano exam (Grade 8) for the <a class="link" href="https://en.wikipedia.org/wiki/ABRSM">ABRSM</a>, but it came with discouragement.
+							When I was in the 5th grade, a toxic teacher humiliated me for being one of two students who failed the cut for a music entrance exam.
+							Thankfully my parents dismissed the teacher.
+							In the end, I went to a different school to meet my current best friends, and found different <a class="link" href="https://www.youtube.com/embed/8MLJmJ3QDKM?enablejsapi=1">music</a> to enjoy.
+						</p>
+						<div class="containerTextAlignCenter">
+							<video id="pianoPlaying" volume=0.2 controls>
+								<source src="./pics/tong_hua.mp4" type="video/mp4">
+							</video>
+							<div>
+								Song: 童话 (Fairy Tale)
+							</div>
+							<div>
+								Artist: 光良 (Michael Wong)
+							</div>
+							<div>
+								Arrangement by: <a href="https://www.youtube.com/@YehPianoCovers">Yeh Piano Covers</a>
 							</div>
 						</div>
-					</div>
+                    </div>
+                    <div class="containerFlex">
+                        <div>
+							<img id="nycMarathon2019" src="./pics/nycMarathon2019.jpg">
+                        </div>
+                        <div>
+                            <p id="aboutMeRunning">
+                                Running is my primary form of exercise, but my <a class="link" href="https://en.wikipedia.org/wiki/Flat_feet">flat feet</a> and extreme <a class="link" href="https://en.wikipedia.org/wiki/Pronation_of_the_foot">pronation</a> brings discomfort.
+                                Many doctors discouraged me from long periods of running.
+                                But while participating in <a class="link" href="https://en.wikipedia.org/wiki/New_York_Road_Runners">NYRR</a> events, the world of runners suprised me.
+                                They are more diverse than the colors of the rainbow, coming in different conditions, with a contagious amount of inspiration.
+                                As of 2024, I've ran 3 Marathons, biked 2 <a class="link" href="https://www.bike.nyc/events/td-five-boro-bike-tour/">Five Boro Bike Tours</a>, and completed 2 sprint triathalons.
+                            </p>
+                        </div>
+                    </div>
+				</div>
+				<div id="coding" class = "containerCoding underneath" style="display: none;">
+                    <div>
+                        <div class="containerFlex">
+                            <p id="codingStart">
+                                My coding journey started at Brooklyn Technical Highschool. In your sophmore year at this specialized highschool, you get to pick your 'major' for the next 2 years.
+                                Choosing Software Engineering, I learned <span class="italicWord">HTML</span>, <span class="italicWord">CSS</span>,
+                                <span class="italicWord">Javascript</span>, and <span class="italicWord">Java</span>,
+                                and got an early understanding of <span class="italicWord">Object Oriented Programming</span> and the <span class="italicWord">SDLC Life Cycle</span>.
+                                I continued my interest in at Brooklyn College because it was affordable and I worked there part-time as a lifeguard.
+                            </p>
+							<div>
+								<img src="./pics/pajamaSam1.gif">
+                                <div style="padding: .8vh 0">
+                                    <div>
+                                        Source: <a class ="link" href="https://en.wikipedia.org/wiki/Pajama_Sam:_No_Need_to_Hide_When_It%27s_Dark_Outside">"Pajama Sam: No Need to Hide When It's Dark Outside"</a>
+                                    </div>
+                                    <div>
+                                        Notes: I emulated a portion of this game for a HTML point & click adventure assignment.
+                                    </div>
+                                    <div style="padding-left: 50px">
+                                        The story is about not being afraid of the dark (it made me afraid of the dark).
+                                    </div>
+                                </div>
+							</div>
+                        </div>
+                        <div class="containerFlex">
+							<div style="position: relative; bottom: 4.5vh">
+								<img src="./pics/healthAide-tora-nosuke.png">
+								<div class="containerTextAlignCenter">
+									Creator: tora-nosuke
+								</div>
+							</div>
+                            <p id="codingInternship">
+                                I interned as a FullStack Engineer at the CDPAP agency <span class="special">Allstar Homecare Agency</span>.
+                                Home Health Aides complements the holistic preferences of Chinese culture because traditional Asian households emphasize the importance of <a class="link" href="https://en.wikipedia.org/wiki/Filial_piety">filial piety</a>.
+                                My tasks included displaying HHA and patient information (<span class="italicWord">ReactJS</span>, <span class="italicWord">Node.js</span>, and
+                                <span class="italicWord">MongoDB</span>), stylzing with open-sourced frame works (<span class="italicWord">Elemental.UI</span> and
+                                <span class="italicWord">AgGrid</span>), and parsing document data (<span class="italicWord">jQuery</span>,
+                                <span class="italicWord">Moment.js</span>, and <span class="italicWord">PDFtk</span>).
+                            </p>
+                        </div>
+                        <div class="containerFlex">
+                            <p id="codingIC">
+                                After college, I transitioned to a Backend Engineer at the global fintech company <span class="special">InvestCloud</span>.
+								There, I developed competitive market <span class="italicWord"> REST APIs</span> (e.g: price history, trends, social governance), created/enhanced <span class="italicWord">J2EE</span> services to facilitate <span class="italicWord">CRUD</span> demands, queried the database using <span class="italicWord">Postgres</span> and <span class="italicWord">Oracle</span>,troubleshot <span class="italicWord">pre-production & production bugs</span> within <span class="italicWord">AWS EC2</span>, managed version control with <span class="italicWord">gitlab</span> tags and <span class="italicWord">code reviews</span>, and more.
+								As of Q1 of 2024, some of their clients include: Wells Fargo, Fiduciary Trust, Neuberger Berman, and Glenmede.
+							</p>
+							<div style="position: relative; bottom: 2vh">
+								<img id ="ic2024q1" src="./pics/ic2024q1.PNG">
+								<div class="containerTextAlignCenter">
+									Note: Pic taken Q1 of 2024
+								</div>
+							</div>
+                        </div>
+                        <div class="containerFlex">
+							<div>
+								<img id="vocabGif" src="./pics/vocab.gif">
+							</div>
+                            <p id="codingProjects">
+                                My proudest project is a vocabulary exam maker, which utilizes <span class="italicWord">DOM manipulation</span> and <span class="italicWord">JSON</span> files.
+                                There are 3 aspects when it comes to learning character based languages: the character itself <span class="chinese">(樂/乐)</span>, pronunciation <span class="chinese">(Lè)</span>, and the translation <span class="chinese">(happy)</span>.
+                                Initially, this was a whimsical project that helped me study for a Chinese test, but I saw its potential to be dynamic and universal.
+                                Tests are editable and combinable, can save incorrect answers into a test, and logs the elapsed time per each question.
+                                I showed the app to my friend who was pursuing a Master's in Occupational Therapy, and it provided positive results.
+                                I see a future where anybody can use my app to study.
+                            </p>
+                        </div>
+                    </div>
 				</div>
 				<div id="projects" class = "containerProjects underneath" style="display: none;">
 					<p>
-						<div>Character Reviewer App</div>
-						<span>link: </span><a href = "https://oumalicious.github.io/VocabularyReviewer/" target = "_blank">https://oumalicious.github.io/VocabularyReviewer/</a>
+						<div>Character Reviewer App (demo shown in the Coding)</div>
+						<span>Link: </span><a href = "https://oumalicious.github.io/VocabularyReviewer/" target = "_blank">https://oumalicious.github.io/VocabularyReviewer/</a>
 						<ul>
 							<li>Uses a double multiple-choice format, testing the character's pronounciation and translation to the native tongue.</li>
 							<li>Allows the user to create their own tests by saving it into a JSON. Tests can be combined and editted.</li>
@@ -208,7 +235,7 @@
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script>
-			$(document).ready(function(e2){			
+			$(document).ready(function(){			
 				$("#frontpageHeader").click(function(e){
 					portfolioScript.show(e.target.id)
 				});
@@ -227,9 +254,21 @@
 				$("#contactinfoHeader").click(function(e){
 					portfolioScript.show(e.target.id)
 				});
+				$('#previewToggle').click(function (e){
+                    portfolioScript.switchPreviewToggle(this)
+				});
+				$(".link").mouseover(function () {
+					console.log(portfolioScript.previewToggle);
+                    if (portfolioScript.previewToggle) {
+						$(this).children(".linkPreview").show();
+					}
+				}).mouseleave(function () {
+					portfolioScript.onLeaveYoutubePreview(this);
+				});
 			});
-//			generateOnClick();
-			portfolioScript.createBufferBlock()
+			portfolioScript.createBufferBlock();
+			portfolioScript.addLinkPreview();
+//			portfolioScript.reducePianoAudio();
 		</script>
 	</body>
 </html>

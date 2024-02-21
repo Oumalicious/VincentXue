@@ -1,10 +1,10 @@
-#headerFloat > div {
+#headerFloat > .header {
     font-size: 20px;
     margin: 22px 20px 22px 20px;
     font-weight: bold;
 }
 
-#headerFloat > .header:hover {
+#headerFloat > .hoverClick:hover {
     cursor: pointer;
 }
 
@@ -30,30 +30,93 @@ hr {
     width: 98vw
 }
 
-.containerFrontPage {
+.containerAboutMe {
+    padding: 3vh 13vw;
 }
 
-.containerAboutMe {
-    padding: 3vh 18% 90px;
+#portfolioHeader {
+    position: fixed;
+    top: 0;
+    left: 50vw;
+    transform: translate(-50%, 0);
+    background-color: #ECF0F1;
+    z-index: 9999;
+}
+
+#portfolioName {
+    color: #007500;
     font-size: 23px;
     position: absolute;
+    left: 8%;
+    top: 0%;
+    margin: 22px 20px 22px 20px;
+    font-weight: bold;
+}
+
+#previewToggle {
+    position: absolute;
+    font-size: 28px;
+    left: 80%;
+    top: 0%;
+    margin: 22px 20px 22px 20px;
+    font-style: italic;
+    color: #096bac;
+}
+
+#aboutMeIntro {
+    font-size: 29px;
+    width: 32vw;
+    transform: translate(20vw, 0);
+    padding: 22vh 0;
+}
+
+#aboutMePiano {
+    font-size: 29px;
+    width: 75vh;
+    padding: 22vh 5vw;
+}
+
+#aboutMeRunning {
+    font-size: 29px;
+    width: 75vh;
+    padding: 22vh 5vw;
+}
+
+.containerCoding {
+    padding: 3vh 12vw;
+}
+
+#codingStart {
+    font-size: 29px;
+    width: 75vh;
+    padding: 20vh 2vw;
+}
+
+#codingInternship {
+    font-size: 29px;
+    width: 75vh;
+    padding: 20vh 2vw;
+}
+
+#codingIC {
+    font-size: 29px;
+    width: 75vh;
+    padding: 20vh 2vw;
+}
+
+#codingProjects {
+    font-size: 29px;
+    width: 75vh;
+    padding: 20vh 2vw;
 }
 
 .containerProjects {
     padding: 3vh 8% 50px;
-    font-size: 23px;
-    position: absolute;
-}
-
-.containerCoding {
-    padding: 3vh 18% 0px;
-    font-size: 23px;
-    position: absolute;
+    font-size: 29px;
 }
 
 .containerContactInfo {
     padding: 10vh 150px 100px;
-    position: absolute;
 }
 
 .containerFlex {
@@ -62,8 +125,12 @@ hr {
     justify-content: center;
 }
 
+.containerTextAlignCenter {
+    text-align: center;
+}
+
 .underneath {
-    z-index: -1;
+    z-index: 1;
 }
 
 .frontPageSnippet {
@@ -82,11 +149,22 @@ hr {
     padding: 2px;
 }
 
-    .icon:hover {
-        opacity: .35;
-        cursor: pointer;
-    }
+.icon:hover {
+    opacity: .35;
+    cursor: pointer;
+}
 
+.linkPreview {
+    display: none;
+    position: fixed;
+    border: 1px solid #000;
+    width: 60vw;
+    height: 70vh;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
 .chinese {
     color: #fa9124;
 }
@@ -104,11 +182,27 @@ hr {
     text-decoration: none;
 }
 
-.skillBlock {
-    padding-right: 50px;
-}
-
 #sidebar {
     top: 0;
     bottom: 0;
+}
+
+#pianoPlaying {
+    width: 540px;
+    height: 304px;
+}
+
+#nycMarathon2019 {
+    width: 400px;
+    height: 500px;
+}
+
+#ic2024q1 {
+    width: 675px;
+    height: 450px;
+}
+
+#vocabGif {
+    width: 675px;
+    height: 450px;
 }
