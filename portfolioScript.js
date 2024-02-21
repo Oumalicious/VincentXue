@@ -110,5 +110,5 @@ portfolioScript.onLeaveYoutubePreview = function onLeaveYoutubePreview(e) {
 
 portfolioScript.reducePianoAudio = function reducePianoAudio() {
 	let videoEle = document.getElementById("pianoPlaying");
-	videoEle.volume = 0.15;
+	videoEle.volume = 0.55;
 }
