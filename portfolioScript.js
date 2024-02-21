@@ -1,10 +1,11 @@
 var portfolioScript = {}
 
+portfolioScript.previewToggle = true
 var SHOWING = false;
 
 portfolioScript.show = function show(id) {
 	id = id.replace("Header", "");
-	var selectedBio = document.getElementById(id);
+	let selectedBio = document.getElementById(id);
 	if (SHOWING) {
 		return;
 	}
@@ -12,20 +13,20 @@ portfolioScript.show = function show(id) {
 		return;
 	}
 	SHOWING = true;
-	var frontpage = document.getElementById("frontpage");
-	var aboutMe = document.getElementById("aboutMe");
-	var coding = document.getElementById("coding");
-	var projects = document.getElementById("projects");
-	var contactinfo = document.getElementById("contactinfo");
-	var headerarray = [frontpage, aboutMe, coding, projects, contactinfo];
-	var selectedHeader = document.getElementById(id + "Header");
-	var headerDiv = document.getElementById("header");
+	let frontpage = document.getElementById("frontpage");
+	let aboutMe = document.getElementById("aboutMe");
+	let coding = document.getElementById("coding");
+	let projects = document.getElementById("projects");
+	let contactinfo = document.getElementById("contactinfo");
+	let headerarray = [frontpage, aboutMe, coding, projects, contactinfo];
+	let selectedHeader = document.getElementById(id + "Header");
+	let headerDiv = document.getElementById("header");
 	selectedHeader.style.color = "red";
-	for (var i in headerarray) {
+	for (let i in headerarray) {
 		if (headerarray[i].id == id) {
 			continue;
 		}
-		var header = document.getElementById(headerarray[i].id + "Header");
+		let header = document.getElementById(headerarray[i].id + "Header");
 		header.style.color = "black";
 		$("#" + headerarray[i].id).fadeOut(275);
 	}
@@ -43,31 +44,71 @@ portfolioScript.createBufferBlock = function createBufferBlock() {
 	textContainer.style.top = bufferBlock.style.height + "px";
 }
 
+portfolioScript.addLinkPreview = function addLinkPreview() {
+	let aboutMe = document.getElementById("aboutMe");
+	for (const aTag of aboutMe.getElementsByTagName("a")) {
+		let iframe = document.createElement("iframe");
+		iframe.classList.add("linkPreview");
+		iframe.src = aTag.href;
+		/*iframe.src = "iFrame.php?url=" + aTag.href;*/
+		aTag.appendChild(iframe);
+	}
+
+	let coding = document.getElementById("coding");
+	for (const aTag of coding.getElementsByTagName("a")) {
+		let iframe = document.createElement("iframe");
+		iframe.classList.add("linkPreview");
+		iframe.src = aTag.href;
+		/*iframe.src = "iFrame.php?url=" + aTag.href;*/
+		aTag.appendChild(iframe);
+	}
+
+	let projects = document.getElementById("projects");
+	for (const aTag of projects.getElementsByTagName("a")) {
+		let iframe = document.createElement("iframe");
+		iframe.classList.add("linkPreview");
+		iframe.src = aTag.href;
+		/*iframe.src = "iFrame.php?url=" + aTag.href;*/	
+		aTag.appendChild(iframe);
+	}
+
+	let allATags = document.getElementsByTagName("a");
+	for (const aTag of allATags) {
+		aTag.target = "_blank"
+	}
+}
+
 portfolioScript.onMouseOver = function onMouseOver(header) {
 	if (header.style.color != "red") {
-		var ele = header.id;
-		document.getElementById(ele).style.color = "#999E9E";
+		header.style.color = "#999E9E";
 	}
 }
 
 portfolioScript.onMouseLeave = function onMouseLeave(header) {
 	if (header.style.color != "red") {
-		var ele = header.id;
-		document.getElementById(ele).style.color = "black";
+		if (header.id == "previewToggle") {
+			header.style.color = (portfolioScript.previewToggle) ? "#096bac" : "#df148b";
+		} else {
+			header.style.color = "black";
+		}
 	}
 }
 
-/*function generateOnClick() {
-	let projects = document.getElementById("projectContainer").children;
-	for (let i = 0; i < projects.length; i++) {
-		projects[i].onclick = function () {
-			let frame = document.getElementById("projectFrame");
-			frame.src = "project" + (i + 1) + "/index.html";
-		}
-	}
-}*/
-		
-/*function resizeFrame(frame) {
-	frame.style.width = frame.contentWindow.document.documentElement.scrollWidth + 'px';
-	frame.style.height = frame.contentWindow.document.documentElement.scrollHeight + 'px';
-}*/
+portfolioScript.switchPreviewToggle = function switchPreviewToggle(toggleEle) {
+	portfolioScript.previewToggle = !portfolioScript.previewToggle;
+	let toggle = (portfolioScript.previewToggle) ? "On" : "Off";
+	toggleEle.innerHTML = "Preview toggle: " + toggle
+}
+
+portfolioScript.onLeaveYoutubePreview = function onLeaveYoutubePreview(e) {
+	let linkPreview = $(e).children(".linkPreview");
+	linkPreview.hide();
+	if (linkPreview.attr("src").indexOf("youtube") > -1) {
+		linkPreview[0].contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+	};
+}
+
+portfolioScript.reducePianoAudio = function reducePianoAudio() {
+	let videoEle = document.getElementById("pianoPlaying");
+	videoEle.volume = 0.15;
+}
