@@ -1,6 +1,6 @@
 var portfolioScript = {}
 
-portfolioScript.previewToggle = true
+portfolioScript.previewToggle = false;
 var SHOWING = false;
 
 portfolioScript.show = function show(id) {
