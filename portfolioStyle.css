@@ -86,10 +86,24 @@ hr {
     padding: 3vh 12vw;
 }
 
-#codingStart {
+.subContainerCoding {
     font-size: 29px;
     width: 75vh;
     padding: 20vh 2vw;
+}
+
+.subContainerCodingSmall {
+    font-size: 22px;
+    width: 75vh;
+    padding: 20vh 2vw;
+}
+
+.subContainerCoding > div {
+    padding: .8vh 2vw
+}
+
+.subContainerCodingSmall > div {
+    padding: .5vh 2vw
 }
 
 #codingInternship {
@@ -175,7 +189,7 @@ hr {
 }
 
 .special {
-    color: #005f00;
+    color: #db0056;
 }
 
 .special:link {
@@ -197,12 +211,41 @@ hr {
     height: 500px;
 }
 
+#mazeMarkings {
+    width: 691px;
+    height: 387px;
+}
+
 #ic2024q1 {
-    width: 675px;
-    height: 450px;
+    width: 600px;
+    height: 400px;
 }
 
 #vocabGif {
     width: 675px;
     height: 450px;
+}
+
+
+.codingBlock {
+    padding: 3.75cvh 0;
+}
+
+.divList {
+    /*   
+    text-decoration: underline;
+    */
+    color: #db3eb1;
+}
+
+.codingContext {
+    color: #189a18;
+}
+
+.ideology {
+    color: #b0b000;
+}
+
+.company {
+    color: #d1a441;
 }
